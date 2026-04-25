@@ -8,10 +8,65 @@ import {
   ThumbsUp,
   ThumbsDown,
   AlertCircle,
+  Star,
+  MessageSquare,
+  Send,
 } from 'lucide-react'
 import { fetchCourse, verifyResource } from '../api'
 import type { Course } from '../data/mockCourses'
 import StarRating from '../components/StarRating'
+
+interface CourseReview {
+  id: string
+  author: string
+  rating: number
+  comment: string
+  date: string
+  major: string
+}
+
+const FAKE_REVIEWS: CourseReview[] = [
+  {
+    id: '1',
+    author: 'Alex M.',
+    rating: 5,
+    comment: 'One of the best CS courses I have taken at NYU. The professor explains concepts really clearly and the assignments are challenging but fair. Highly recommend taking this early in your CS career.',
+    date: 'Mar 2026',
+    major: 'CS Junior',
+  },
+  {
+    id: '2',
+    author: 'Priya S.',
+    rating: 4,
+    comment: 'Great course overall. The material on trees and graphs was especially well taught. Office hours are very helpful — go early in the semester before it gets crowded.',
+    date: 'Feb 2026',
+    major: 'Math/CS Sophomore',
+  },
+  {
+    id: '3',
+    author: 'Jordan K.',
+    rating: 3,
+    comment: 'The workload is heavier than expected, but you learn a lot. Make sure to start projects early — the last few assignments take more time than the rubric suggests. Lecture slides are solid.',
+    date: 'Jan 2026',
+    major: 'CS Sophomore',
+  },
+  {
+    id: '4',
+    author: 'Mei L.',
+    rating: 5,
+    comment: 'Really enjoyed how the professor connected data structures to real-world applications. The linked list and hash table units were my favorites. The study guides shared on here were a lifesaver.',
+    date: 'Dec 2025',
+    major: 'CS/Economics Junior',
+  },
+  {
+    id: '5',
+    author: 'Daniel R.',
+    rating: 4,
+    comment: 'Solid course. Exams are tricky but fair — focus on understanding time complexity for everything. The peer study sessions helped me a lot.',
+    date: 'Nov 2025',
+    major: 'CS Freshman',
+  },
+]
 
 export default function CourseDetail() {
   const { id } = useParams<{ id: string }>()
@@ -19,6 +74,11 @@ export default function CourseDetail() {
   const [loading, setLoading] = useState(true)
   const [helpful, setHelpful] = useState<'yes' | 'no' | null>(null)
   const [votedIds, setVotedIds] = useState<Set<string>>(new Set())
+  const [reviews, setReviews] = useState<CourseReview[]>(FAKE_REVIEWS)
+  const [userRating, setUserRating] = useState(0)
+  const [hoverRating, setHoverRating] = useState(0)
+  const [newComment, setNewComment] = useState('')
+  const [submitted, setSubmitted] = useState(false)
 
   useEffect(() => {
     if (!id) return
@@ -28,6 +88,23 @@ export default function CourseDetail() {
       .catch(() => setCourse(null))
       .finally(() => setLoading(false))
   }, [id])
+
+  function handleSubmitReview() {
+    if (userRating === 0 || newComment.trim() === '') return
+    const newReview: CourseReview = {
+      id: `user-${Date.now()}`,
+      author: 'You',
+      rating: userRating,
+      comment: newComment.trim(),
+      date: new Date().toLocaleString('en-US', { month: 'short', year: 'numeric' }),
+      major: 'NYU Student',
+    }
+    setReviews((prev) => [newReview, ...prev])
+    setUserRating(0)
+    setNewComment('')
+    setSubmitted(true)
+    setTimeout(() => setSubmitted(false), 3000)
+  }
 
   async function handleVerify(resourceId: string) {
     if (!resourceId || votedIds.has(resourceId)) return
@@ -242,6 +319,153 @@ export default function CourseDetail() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Student Reviews Section */}
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Write a Review */}
+          <div className="bg-nyu-white dark:bg-surface-dark-raised border border-nyu-gray-3 dark:border-surface-dark-subtle rounded-xl shadow-card p-6">
+            <div className="flex items-center gap-2 mb-5">
+              <MessageSquare className="w-5 h-5 text-nyu-violet dark:text-nyu-light-violet-1" />
+              <h2 className="text-base font-semibold text-ink-primary dark:text-ink-dark-primary">Rate This Course</h2>
+            </div>
+
+            <div className="mb-4">
+              <p className="text-sm text-ink-secondary dark:text-ink-dark-secondary mb-2 font-medium">Your Rating</p>
+              <div className="flex items-center gap-1">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <button
+                    key={i}
+                    onMouseEnter={() => setHoverRating(i)}
+                    onMouseLeave={() => setHoverRating(0)}
+                    onClick={() => setUserRating(i)}
+                    className="transition-transform duration-100 hover:scale-110 active:scale-95"
+                    aria-label={`Rate ${i} star${i !== 1 ? 's' : ''}`}
+                  >
+                    <Star
+                      className={`w-7 h-7 transition-colors duration-100 ${
+                        i <= (hoverRating || userRating)
+                          ? 'fill-nyu-yellow text-nyu-yellow'
+                          : 'fill-nyu-gray-3 text-nyu-gray-2 dark:fill-surface-dark-subtle dark:text-surface-dark-muted'
+                      }`}
+                    />
+                  </button>
+                ))}
+                {(hoverRating || userRating) > 0 && (
+                  <span className="ml-2 text-sm font-medium text-ink-secondary dark:text-ink-dark-secondary">
+                    {['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent'][hoverRating || userRating]}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="mb-4">
+              <p className="text-sm text-ink-secondary dark:text-ink-dark-secondary mb-2 font-medium">Comment</p>
+              <textarea
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+                rows={4}
+                placeholder="Share your experience with this course..."
+                className="w-full px-3 py-2.5 text-sm rounded-lg border border-nyu-gray-3 dark:border-surface-dark-muted bg-nyu-light-gray dark:bg-surface-dark-base text-ink-primary dark:text-ink-dark-primary placeholder-ink-tertiary dark:placeholder-ink-dark-tertiary focus:outline-none focus:ring-2 focus:ring-nyu-violet/40 dark:focus:ring-nyu-light-violet-1/40 resize-none transition-colors duration-150"
+              />
+            </div>
+
+            <button
+              onClick={handleSubmitReview}
+              disabled={userRating === 0 || newComment.trim() === ''}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-nyu-violet text-white text-sm font-semibold hover:bg-nyu-deep-violet disabled:opacity-40 disabled:cursor-not-allowed transition-colors duration-150 active:scale-[0.97]"
+            >
+              <Send className="w-4 h-4" />
+              Submit Review
+            </button>
+
+            {submitted && (
+              <p className="mt-3 text-sm text-nyu-teal font-medium">Your review was posted!</p>
+            )}
+          </div>
+
+          {/* Average Rating Summary */}
+          <div className="bg-nyu-white dark:bg-surface-dark-raised border border-nyu-gray-3 dark:border-surface-dark-subtle rounded-xl shadow-card p-6">
+            <h2 className="text-base font-semibold text-ink-primary dark:text-ink-dark-primary mb-5">Overall Rating</h2>
+            {(() => {
+              const avg = reviews.reduce((s, r) => s + r.rating, 0) / reviews.length
+              const rounded = Math.round(avg * 10) / 10
+              return (
+                <div className="flex items-center gap-6">
+                  <div className="text-center">
+                    <p className="text-5xl font-bold text-ink-primary dark:text-ink-dark-primary leading-none">{rounded.toFixed(1)}</p>
+                    <div className="flex justify-center gap-0.5 mt-2">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star
+                          key={i}
+                          className={`w-4 h-4 ${
+                            i <= Math.round(avg)
+                              ? 'fill-nyu-yellow text-nyu-yellow'
+                              : 'fill-nyu-gray-3 text-nyu-gray-2 dark:fill-surface-dark-subtle dark:text-surface-dark-muted'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <p className="text-xs text-ink-tertiary dark:text-ink-dark-tertiary mt-1">{reviews.length} review{reviews.length !== 1 ? 's' : ''}</p>
+                  </div>
+                  <div className="flex-1 flex flex-col gap-1.5">
+                    {[5, 4, 3, 2, 1].map((star) => {
+                      const count = reviews.filter((r) => r.rating === star).length
+                      const pct = reviews.length > 0 ? (count / reviews.length) * 100 : 0
+                      return (
+                        <div key={star} className="flex items-center gap-2 text-xs">
+                          <span className="w-4 text-right text-ink-tertiary dark:text-ink-dark-tertiary">{star}</span>
+                          <Star className="w-3 h-3 fill-nyu-yellow text-nyu-yellow shrink-0" />
+                          <div className="flex-1 h-2 bg-nyu-gray-3 dark:bg-surface-dark-subtle rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-nyu-yellow rounded-full transition-[width] duration-500"
+                              style={{ width: `${pct}%` }}
+                            />
+                          </div>
+                          <span className="w-4 text-ink-tertiary dark:text-ink-dark-tertiary">{count}</span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              )
+            })()}
+          </div>
+        </div>
+
+        {/* Review List */}
+        <div className="mt-6 bg-nyu-white dark:bg-surface-dark-raised border border-nyu-gray-3 dark:border-surface-dark-subtle rounded-xl shadow-card p-6">
+          <h2 className="text-base font-semibold text-ink-primary dark:text-ink-dark-primary mb-5">Student Reviews</h2>
+          <div className="flex flex-col divide-y divide-nyu-gray-3 dark:divide-surface-dark-subtle">
+            {reviews.map((review) => (
+              <div key={review.id} className="py-4 first:pt-0 last:pb-0">
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-nyu-light-violet-2 dark:bg-surface-dark-subtle flex items-center justify-center text-nyu-violet dark:text-nyu-light-violet-1 text-xs font-bold shrink-0">
+                      {review.author[0]}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-ink-primary dark:text-ink-dark-primary">{review.author}</p>
+                      <p className="text-xs text-ink-tertiary dark:text-ink-dark-tertiary">{review.major} · {review.date}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-0.5 shrink-0">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star
+                        key={i}
+                        className={`w-3.5 h-3.5 ${
+                          i <= review.rating
+                            ? 'fill-nyu-yellow text-nyu-yellow'
+                            : 'fill-nyu-gray-3 text-nyu-gray-2 dark:fill-surface-dark-subtle dark:text-surface-dark-muted'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-sm text-ink-secondary dark:text-ink-dark-secondary leading-relaxed pl-10">{review.comment}</p>
+              </div>
+            ))}
           </div>
         </div>
       </main>

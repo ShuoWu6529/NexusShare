@@ -47,10 +47,6 @@ export default function Landing() {
         <section className="flex flex-col lg:flex-row gap-10 items-start mb-14">
           {/* Left: headline + search */}
           <div className="flex-1 min-w-0">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-nyu-violet/10 dark:bg-nyu-violet/20 text-nyu-violet dark:text-nyu-light-violet-1 text-xs font-semibold mb-5 border border-nyu-violet/20 dark:border-nyu-violet/30">
-              <BookOpenCheck className="w-3.5 h-3.5" />
-              NYU-Verified Platform
-            </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-nyu-black dark:text-ink-dark-primary leading-tight tracking-tight mb-4">
               Know Your Semester<br className="hidden sm:block" /> Before It Starts.
             </h1>
