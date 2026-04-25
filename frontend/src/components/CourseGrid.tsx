@@ -7,9 +7,10 @@ interface CourseGridProps {
   courses: Course[]
   query: string
   loading?: boolean
+  showAll?: boolean
 }
 
-export default function CourseGrid({ courses, query, loading: externalLoading }: CourseGridProps) {
+export default function CourseGrid({ courses, query, loading: externalLoading, showAll }: Readonly<CourseGridProps>) {
   const [queryLoading, setQueryLoading] = useState(false)
 
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function CourseGrid({ courses, query, loading: externalLoading }:
 
   const loading = externalLoading || queryLoading
 
-  const displayed = query.trim() === '' ? courses.slice(0, 6) : courses
+  const displayed = (showAll || query.trim() !== '') ? courses : courses.slice(0, 6)
 
   if (loading) {
     return (

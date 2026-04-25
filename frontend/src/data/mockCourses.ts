@@ -13,11 +13,15 @@ export interface Resource {
   votes?: number;
 }
 
+export type School = 'Tandon' | 'CAS' | 'Stern' | 'Gallatin' | 'Tisch' | 'Steinhardt'
+
 export interface Course {
   id: string;
   code: string;
   name: string;
   professor: string;
+  school: School;
+  mandatoryAttendance: boolean;
   syllabusAvailable: boolean;
   recordingPolicy: "Asynchronous Friendly" | "In-Person Only";
   textbookCost: number;
@@ -33,6 +37,8 @@ export const mockCourses: Course[] = [
     code: "CS-UY 2124",
     name: "Object Oriented Programming",
     professor: "Prof. Douglas Troeger",
+    school: "Tandon",
+    mandatoryAttendance: false,
     syllabusAvailable: true,
     recordingPolicy: "Asynchronous Friendly",
     textbookCost: 0,
@@ -51,6 +57,8 @@ export const mockCourses: Course[] = [
     code: "MATH-UA 120",
     name: "Discrete Mathematics",
     professor: "Prof. Yuri Tschinkel",
+    school: "CAS",
+    mandatoryAttendance: true,
     syllabusAvailable: true,
     recordingPolicy: "In-Person Only",
     textbookCost: 89,
@@ -68,6 +76,8 @@ export const mockCourses: Course[] = [
     code: "CS-UY 3083",
     name: "Introduction to Databases",
     professor: "Prof. Anasse Bari",
+    school: "Tandon",
+    mandatoryAttendance: false,
     syllabusAvailable: true,
     recordingPolicy: "Asynchronous Friendly",
     textbookCost: 45,
@@ -86,6 +96,8 @@ export const mockCourses: Course[] = [
     code: "ECON-UA 1",
     name: "Introduction to Microeconomics",
     professor: "Prof. Lawrence White",
+    school: "Stern",
+    mandatoryAttendance: true,
     syllabusAvailable: true,
     recordingPolicy: "In-Person Only",
     textbookCost: 120,
@@ -103,6 +115,8 @@ export const mockCourses: Course[] = [
     code: "CS-UY 4613",
     name: "Compiler Design",
     professor: "Prof. Mohamed Zahran",
+    school: "Tandon",
+    mandatoryAttendance: true,
     syllabusAvailable: false,
     recordingPolicy: "In-Person Only",
     textbookCost: 75,
@@ -119,6 +133,8 @@ export const mockCourses: Course[] = [
     code: "PSYCH-UA 1",
     name: "Introduction to Psychology",
     professor: "Prof. Marjorie Rhodes",
+    school: "CAS",
+    mandatoryAttendance: false,
     syllabusAvailable: true,
     recordingPolicy: "Asynchronous Friendly",
     textbookCost: 0,
@@ -137,6 +153,8 @@ export const mockCourses: Course[] = [
     code: "CS-UY 1114",
     name: "Introduction to Programming & Problem Solving",
     professor: "Prof. Michael Overton",
+    school: "Tandon",
+    mandatoryAttendance: false,
     syllabusAvailable: true,
     recordingPolicy: "Asynchronous Friendly",
     textbookCost: 0,
@@ -154,6 +172,8 @@ export const mockCourses: Course[] = [
     code: "BIOL-UA 11",
     name: "Principles of Biology I",
     professor: "Prof. Gloria Coruzzi",
+    school: "CAS",
+    mandatoryAttendance: true,
     syllabusAvailable: true,
     recordingPolicy: "In-Person Only",
     textbookCost: 210,
@@ -171,6 +191,8 @@ export const mockCourses: Course[] = [
     code: "PHIL-UA 1",
     name: "Introduction to Philosophy",
     professor: "Prof. Don Garrett",
+    school: "Gallatin",
+    mandatoryAttendance: true,
     syllabusAvailable: false,
     recordingPolicy: "Asynchronous Friendly",
     textbookCost: 55,
@@ -188,6 +210,8 @@ export const mockCourses: Course[] = [
     code: "CS-UY 3113",
     name: "Operating Systems",
     professor: "Prof. Justin Cappos",
+    school: "Tandon",
+    mandatoryAttendance: false,
     syllabusAvailable: true,
     recordingPolicy: "In-Person Only",
     textbookCost: 0,
@@ -206,6 +230,8 @@ export const mockCourses: Course[] = [
     code: "MATH-UA 140",
     name: "Linear Algebra",
     professor: "Prof. Percy Deift",
+    school: "CAS",
+    mandatoryAttendance: false,
     syllabusAvailable: true,
     recordingPolicy: "Asynchronous Friendly",
     textbookCost: 95,
@@ -223,6 +249,8 @@ export const mockCourses: Course[] = [
     code: "COMM-UA 710",
     name: "Media & Society",
     professor: "Prof. Todd Gitlin",
+    school: "Steinhardt",
+    mandatoryAttendance: true,
     syllabusAvailable: true,
     recordingPolicy: "Asynchronous Friendly",
     textbookCost: 40,
