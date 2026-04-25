@@ -1,0 +1,828 @@
+{
+  "courses": [
+    {
+      "id": "95d914fc-9e55-466a-b8f8-01b87a941a45",
+      "code": "CS-UY 1114",
+      "name": "Introduction to Programming and Problem Solving",
+      "professor": "Prof. Alice Smith",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 0.0,
+      "resources": [
+        {
+          "id": "d4669202-149a-40b2-9168-10efc90388fc",
+          "course_id": "95d914fc-9e55-466a-b8f8-01b87a941a45",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEcsuy1114SYLv1zK3mN/view",
+          "uploader_netid": "as1234@nyu.edu",
+          "votes": 34
+        },
+        {
+          "id": "ad149580-3482-4d80-91e3-960b0046d0af",
+          "course_id": "95d914fc-9e55-466a-b8f8-01b87a941a45",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEcsuy1114LECv1z",
+          "uploader_netid": "bk5678@nyu.edu",
+          "votes": 19
+        }
+      ]
+    },
+    {
+      "id": "6a93e663-69d1-4e5f-8805-dee761fc85cc",
+      "code": "CS-UY 2124",
+      "name": "Object Oriented Programming",
+      "professor": "Prof. Wei Chen",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 89.99,
+      "resources": [
+        {
+          "id": "2849efa0-9ef6-467f-b81f-98910ba6dd73",
+          "course_id": "6a93e663-69d1-4e5f-8805-dee761fc85cc",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEcsuy2124SYL/view",
+          "uploader_netid": "wc9876@nyu.edu",
+          "votes": 45
+        },
+        {
+          "id": "24f63fb3-dc6a-4a46-8ac2-eeec5e8eef9e",
+          "course_id": "6a93e663-69d1-4e5f-8805-dee761fc85cc",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEcsuy2124LEC",
+          "uploader_netid": "jd1111@nyu.edu",
+          "votes": 28
+        },
+        {
+          "id": "1fd4caf5-caeb-4abf-bbfd-e1551b083f9a",
+          "course_id": "6a93e663-69d1-4e5f-8805-dee761fc85cc",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEcsuy2124GUIDE/view",
+          "uploader_netid": "mh2222@nyu.edu",
+          "votes": 31
+        }
+      ]
+    },
+    {
+      "id": "d5722a40-5227-481f-80dc-728afcbb89d3",
+      "code": "CS-UY 2214",
+      "name": "Computer Architecture and Organization",
+      "professor": "Prof. Rajesh Patel",
+      "recording_status": "Peer-Only",
+      "avg_textbook_cost": 74.99,
+      "resources": [
+        {
+          "id": "7f61d176-85e1-4c57-908b-0bfccd4a856e",
+          "course_id": "d5722a40-5227-481f-80dc-728afcbb89d3",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEcsuy2214SYL/view",
+          "uploader_netid": "rp3333@nyu.edu",
+          "votes": 12
+        },
+        {
+          "id": "8f7737bf-918d-42a5-b281-28daf813021e",
+          "course_id": "d5722a40-5227-481f-80dc-728afcbb89d3",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEcsuy2214GUIDE/view",
+          "uploader_netid": "ks4444@nyu.edu",
+          "votes": 8
+        }
+      ]
+    },
+    {
+      "id": "80b8b684-fbc3-449b-a588-b904f72476cc",
+      "code": "CS-UY 3224",
+      "name": "Operating Systems",
+      "professor": "Prof. Carlos Rodriguez",
+      "recording_status": "Not Recorded",
+      "avg_textbook_cost": 129.99,
+      "resources": [
+        {
+          "id": "6c3f1116-fa89-4f7e-8d8f-211abb80ab88",
+          "course_id": "80b8b684-fbc3-449b-a588-b904f72476cc",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEcsuy3224SYL/view",
+          "uploader_netid": "cr5555@nyu.edu",
+          "votes": 22
+        },
+        {
+          "id": "75b5906a-c1b4-4480-abc0-e6ffde49ac94",
+          "course_id": "80b8b684-fbc3-449b-a588-b904f72476cc",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEcsuy3224LEC",
+          "uploader_netid": "am6666@nyu.edu",
+          "votes": 15
+        },
+        {
+          "id": "9b94ceb5-3f7a-4736-8282-8be736c376c6",
+          "course_id": "80b8b684-fbc3-449b-a588-b904f72476cc",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEcsuy3224GUIDE/view",
+          "uploader_netid": "lw7777@nyu.edu",
+          "votes": 18
+        }
+      ]
+    },
+    {
+      "id": "f1cd20c6-7f4c-4719-8c78-93a0b46bac72",
+      "code": "CS-UY 3943",
+      "name": "Algorithms",
+      "professor": "Prof. Jennifer Kim",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 159.99,
+      "resources": [
+        {
+          "id": "a7d135b4-7664-4d4e-8410-51153aa4a883",
+          "course_id": "f1cd20c6-7f4c-4719-8c78-93a0b46bac72",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEcsuy3943SYL/view",
+          "uploader_netid": "jk8888@nyu.edu",
+          "votes": 38
+        },
+        {
+          "id": "93685c93-9c6a-4601-989f-703e96fcb7cc",
+          "course_id": "f1cd20c6-7f4c-4719-8c78-93a0b46bac72",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEcsuy3943LEC",
+          "uploader_netid": "sb9999@nyu.edu",
+          "votes": 25
+        }
+      ]
+    },
+    {
+      "id": "47656a1a-4ef8-4a50-814c-bf2ddf58ab2f",
+      "code": "CS-UY 4513",
+      "name": "Database Systems",
+      "professor": "Prof. David Goldberg",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 49.99,
+      "resources": [
+        {
+          "id": "81e8b772-080b-4f69-a122-d7044c45ac0f",
+          "course_id": "47656a1a-4ef8-4a50-814c-bf2ddf58ab2f",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEcsuy4513SYL/view",
+          "uploader_netid": "dg0001@nyu.edu",
+          "votes": 41
+        },
+        {
+          "id": "43e271fa-feb0-4f55-8629-0a9b59eaf6bd",
+          "course_id": "47656a1a-4ef8-4a50-814c-bf2ddf58ab2f",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEcsuy4513GUIDE/view",
+          "uploader_netid": "tp0002@nyu.edu",
+          "votes": 27
+        },
+        {
+          "id": "791a615a-21e9-4cc9-b955-603d4a1891d8",
+          "course_id": "47656a1a-4ef8-4a50-814c-bf2ddf58ab2f",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEcsuy4513LEC",
+          "uploader_netid": "rs0003@nyu.edu",
+          "votes": 20
+        }
+      ]
+    },
+    {
+      "id": "a52c6fa3-494d-4c75-b110-9e5ca7ab90c2",
+      "code": "CS-GY 6003",
+      "name": "Introduction to Computer Science",
+      "professor": "Prof. Mark Johnson",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 0.0,
+      "resources": [
+        {
+          "id": "0f9c10f5-e593-4722-a622-14400596c052",
+          "course_id": "a52c6fa3-494d-4c75-b110-9e5ca7ab90c2",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEcsgy6003SYL/view",
+          "uploader_netid": "mj0004@nyu.edu",
+          "votes": 29
+        }
+      ]
+    },
+    {
+      "id": "e9e1f671-df8c-4b33-a4dd-498c95efaad4",
+      "code": "CS-GY 6063",
+      "name": "Software Engineering",
+      "professor": "Prof. Sarah Williams",
+      "recording_status": "Peer-Only",
+      "avg_textbook_cost": 0.0,
+      "resources": [
+        {
+          "id": "55fcf311-95e4-4069-8eb2-975801b239e1",
+          "course_id": "e9e1f671-df8c-4b33-a4dd-498c95efaad4",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEcsgy6063SYL/view",
+          "uploader_netid": "sw0005@nyu.edu",
+          "votes": 33
+        },
+        {
+          "id": "058833ce-fe08-4d84-9991-edd9634d3559",
+          "course_id": "e9e1f671-df8c-4b33-a4dd-498c95efaad4",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEcsgy6063GUIDE/view",
+          "uploader_netid": "nc0006@nyu.edu",
+          "votes": 21
+        }
+      ]
+    },
+    {
+      "id": "232391e1-c7ec-4279-9fe8-8016e7174270",
+      "code": "CS-GY 9223",
+      "name": "Machine Learning",
+      "professor": "Prof. Robert Martinez",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 0.0,
+      "resources": [
+        {
+          "id": "bf5bee04-424d-49da-8965-45434222585f",
+          "course_id": "232391e1-c7ec-4279-9fe8-8016e7174270",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEcsgy9223SYL/view",
+          "uploader_netid": "rm0007@nyu.edu",
+          "votes": 50
+        },
+        {
+          "id": "77a643de-f861-4171-a557-bf50bf272fca",
+          "course_id": "232391e1-c7ec-4279-9fe8-8016e7174270",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEcsgy9223LEC",
+          "uploader_netid": "aj0008@nyu.edu",
+          "votes": 42
+        },
+        {
+          "id": "01194651-1287-4675-8b89-819e627dac1d",
+          "course_id": "232391e1-c7ec-4279-9fe8-8016e7174270",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEcsgy9223GUIDE/view",
+          "uploader_netid": "kt0009@nyu.edu",
+          "votes": 36
+        }
+      ]
+    },
+    {
+      "id": "764675d8-f95e-4e9d-af06-9f96d4b5e3ab",
+      "code": "MATH-UA 121",
+      "name": "Calculus I",
+      "professor": "Prof. Michael Thompson",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 199.99,
+      "resources": [
+        {
+          "id": "1a3a30f0-e23e-4136-9a94-4c293d314f7b",
+          "course_id": "764675d8-f95e-4e9d-af06-9f96d4b5e3ab",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEmathua121SYL/view",
+          "uploader_netid": "mt0010@nyu.edu",
+          "votes": 44
+        },
+        {
+          "id": "8f6c6711-7796-4bb5-abcd-9dc01e2fc113",
+          "course_id": "764675d8-f95e-4e9d-af06-9f96d4b5e3ab",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEmathua121LEC",
+          "uploader_netid": "pe0011@nyu.edu",
+          "votes": 26
+        },
+        {
+          "id": "1bf282a5-1653-48c4-b9c2-faafb4064fe3",
+          "course_id": "764675d8-f95e-4e9d-af06-9f96d4b5e3ab",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEmathua121GUIDE/view",
+          "uploader_netid": "cv0012@nyu.edu",
+          "votes": 39
+        },
+        {
+          "id": "85dbe60c-9630-4fc7-8e6a-4516ff6d1e82",
+          "course_id": "764675d8-f95e-4e9d-af06-9f96d4b5e3ab",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEmathua121LEC2",
+          "uploader_netid": "dx0013@nyu.edu",
+          "votes": 17
+        }
+      ]
+    },
+    {
+      "id": "2208f9b4-42c0-42f1-8c3a-648a19500062",
+      "code": "MATH-UA 122",
+      "name": "Calculus II",
+      "professor": "Prof. Anh Nguyen",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 199.99,
+      "resources": [
+        {
+          "id": "3a8ad31b-1d31-4eab-bbe8-3498c44bd284",
+          "course_id": "2208f9b4-42c0-42f1-8c3a-648a19500062",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEmathua122SYL/view",
+          "uploader_netid": "an0014@nyu.edu",
+          "votes": 32
+        },
+        {
+          "id": "21d8785c-2624-472f-b3bf-b99551062299",
+          "course_id": "2208f9b4-42c0-42f1-8c3a-648a19500062",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEmathua122LEC",
+          "uploader_netid": "ey0015@nyu.edu",
+          "votes": 24
+        },
+        {
+          "id": "f3943b43-b27a-4f41-ae2c-e4e01e1f53e1",
+          "course_id": "2208f9b4-42c0-42f1-8c3a-648a19500062",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEmathua122GUIDE/view",
+          "uploader_netid": "fz0016@nyu.edu",
+          "votes": 28
+        }
+      ]
+    },
+    {
+      "id": "e4994863-36a9-4981-a1cc-c16b6fc831a9",
+      "code": "MATH-UA 123",
+      "name": "Calculus III",
+      "professor": "Prof. Thomas Davis",
+      "recording_status": "Peer-Only",
+      "avg_textbook_cost": 199.99,
+      "resources": [
+        {
+          "id": "89bd3b65-7b32-4d55-8e0e-9a391e09749a",
+          "course_id": "e4994863-36a9-4981-a1cc-c16b6fc831a9",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEmathua123SYL/view",
+          "uploader_netid": "td0017@nyu.edu",
+          "votes": 14
+        },
+        {
+          "id": "3afc7a6d-8941-4a0f-b385-d11ce884e722",
+          "course_id": "e4994863-36a9-4981-a1cc-c16b6fc831a9",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEmathua123GUIDE/view",
+          "uploader_netid": "gm0018@nyu.edu",
+          "votes": 11
+        }
+      ]
+    },
+    {
+      "id": "835e49ba-c8ad-40cf-80c8-18a0c3a28477",
+      "code": "MATH-UA 140",
+      "name": "Linear Algebra",
+      "professor": "Prof. James Wilson",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 179.99,
+      "resources": [
+        {
+          "id": "37c1deea-dd53-4e2d-a604-ff7d49c9c3ae",
+          "course_id": "835e49ba-c8ad-40cf-80c8-18a0c3a28477",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEmathua140SYL/view",
+          "uploader_netid": "jw0019@nyu.edu",
+          "votes": 46
+        },
+        {
+          "id": "fb1de58f-68b9-4087-b7f6-7f2a97f03c9f",
+          "course_id": "835e49ba-c8ad-40cf-80c8-18a0c3a28477",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEmathua140LEC",
+          "uploader_netid": "hi0020@nyu.edu",
+          "votes": 23
+        },
+        {
+          "id": "cbee04a4-a37c-465c-bf00-f3be0f70b73e",
+          "course_id": "835e49ba-c8ad-40cf-80c8-18a0c3a28477",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEmathua140GUIDE/view",
+          "uploader_netid": "ij0021@nyu.edu",
+          "votes": 30
+        }
+      ]
+    },
+    {
+      "id": "a08ea5a0-aab0-44fc-abf9-551c789d65d2",
+      "code": "MATH-UA 233",
+      "name": "Theory of Probability",
+      "professor": "Prof. Patricia Anderson",
+      "recording_status": "Not Recorded",
+      "avg_textbook_cost": 149.99,
+      "resources": [
+        {
+          "id": "15f163e3-3769-45e9-9695-9fba480e04b6",
+          "course_id": "a08ea5a0-aab0-44fc-abf9-551c789d65d2",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEmathua233SYL/view",
+          "uploader_netid": "pa0022@nyu.edu",
+          "votes": 16
+        },
+        {
+          "id": "4a2e9cf5-40b7-4b50-a111-1f24c2c89c4e",
+          "course_id": "a08ea5a0-aab0-44fc-abf9-551c789d65d2",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEmathua233GUIDE/view",
+          "uploader_netid": "kl0023@nyu.edu",
+          "votes": 13
+        }
+      ]
+    },
+    {
+      "id": "bc4f41e0-ccff-46cf-980f-d28a8338eff8",
+      "code": "MATH-UA 325",
+      "name": "Analysis",
+      "professor": "Prof. George Brown",
+      "recording_status": "Not Recorded",
+      "avg_textbook_cost": 89.99,
+      "resources": [
+        {
+          "id": "a7b05a73-530b-443a-b7e5-f1e82c56ba59",
+          "course_id": "bc4f41e0-ccff-46cf-980f-d28a8338eff8",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEmathua325SYL/view",
+          "uploader_netid": "gb0024@nyu.edu",
+          "votes": 9
+        }
+      ]
+    },
+    {
+      "id": "dc746025-9275-46e3-8cbc-408ce41c7afa",
+      "code": "ECON-UA 1",
+      "name": "Introduction to Microeconomics",
+      "professor": "Prof. Lisa Taylor",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 249.99,
+      "resources": [
+        {
+          "id": "13c54e90-3cff-4c2a-a5f3-8040777ec409",
+          "course_id": "dc746025-9275-46e3-8cbc-408ce41c7afa",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEeconoma1SYL/view",
+          "uploader_netid": "lt0025@nyu.edu",
+          "votes": 48
+        },
+        {
+          "id": "7ad2c821-1ab9-416e-9e12-f8fa49330250",
+          "course_id": "dc746025-9275-46e3-8cbc-408ce41c7afa",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEeconoma1LEC",
+          "uploader_netid": "mn0026@nyu.edu",
+          "votes": 35
+        },
+        {
+          "id": "ab1126c7-7097-41ea-b15d-164d0de70da3",
+          "course_id": "dc746025-9275-46e3-8cbc-408ce41c7afa",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEeconoma1GUIDE/view",
+          "uploader_netid": "op0027@nyu.edu",
+          "votes": 40
+        },
+        {
+          "id": "9bfb2758-afdb-4c4b-bfb6-d6c15c4ec5d2",
+          "course_id": "dc746025-9275-46e3-8cbc-408ce41c7afa",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEeconoma1LEC2",
+          "uploader_netid": "qr0028@nyu.edu",
+          "votes": 22
+        }
+      ]
+    },
+    {
+      "id": "facb9b8a-fe64-4678-a4c6-a194ef8477ef",
+      "code": "ECON-UA 2",
+      "name": "Introduction to Macroeconomics",
+      "professor": "Prof. Stephen Jackson",
+      "recording_status": "Peer-Only",
+      "avg_textbook_cost": 249.99,
+      "resources": [
+        {
+          "id": "ad910e69-6809-4e1c-af82-8ef563f90b9b",
+          "course_id": "facb9b8a-fe64-4678-a4c6-a194ef8477ef",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEeconoma2SYL/view",
+          "uploader_netid": "sj0029@nyu.edu",
+          "votes": 37
+        },
+        {
+          "id": "ede7e22c-b998-442b-a61a-255d540285c7",
+          "course_id": "facb9b8a-fe64-4678-a4c6-a194ef8477ef",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEeconoma2LEC",
+          "uploader_netid": "tu0030@nyu.edu",
+          "votes": 19
+        },
+        {
+          "id": "b74ec759-d794-45e6-b3d1-a99c88f1376e",
+          "course_id": "facb9b8a-fe64-4678-a4c6-a194ef8477ef",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEeconoma2GUIDE/view",
+          "uploader_netid": "vw0031@nyu.edu",
+          "votes": 26
+        }
+      ]
+    },
+    {
+      "id": "891a771f-c10e-4966-9733-a4ecabcb4007",
+      "code": "ECON-UA 10",
+      "name": "Statistics for Economists",
+      "professor": "Prof. Karen White",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 109.99,
+      "resources": [
+        {
+          "id": "23b8555e-ea95-46cf-9cd4-9651f1040698",
+          "course_id": "891a771f-c10e-4966-9733-a4ecabcb4007",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEeconoma10SYL/view",
+          "uploader_netid": "kw0032@nyu.edu",
+          "votes": 20
+        },
+        {
+          "id": "618d99b3-4f89-4a4f-a72d-57f19a721212",
+          "course_id": "891a771f-c10e-4966-9733-a4ecabcb4007",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEeconoma10GUIDE/view",
+          "uploader_netid": "xy0033@nyu.edu",
+          "votes": 15
+        }
+      ]
+    },
+    {
+      "id": "68e7743f-89d5-4970-a268-71c470b7c824",
+      "code": "ECON-UA 20",
+      "name": "Econometrics",
+      "professor": "Prof. Richard Harris",
+      "recording_status": "Not Recorded",
+      "avg_textbook_cost": 159.99,
+      "resources": [
+        {
+          "id": "2250c318-a3a8-4d7a-bf17-3ad459b5320d",
+          "course_id": "68e7743f-89d5-4970-a268-71c470b7c824",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEeconoma20SYL/view",
+          "uploader_netid": "rh0034@nyu.edu",
+          "votes": 10
+        },
+        {
+          "id": "411dce4d-5065-4eb9-a7d6-e4cb773f1244",
+          "course_id": "68e7743f-89d5-4970-a268-71c470b7c824",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEeconoma20GUIDE/view",
+          "uploader_netid": "ab0035@nyu.edu",
+          "votes": 7
+        }
+      ]
+    },
+    {
+      "id": "2dccc92e-d0e3-437e-9807-4b6050272ea2",
+      "code": "PSYCH-UA 1",
+      "name": "Introduction to Psychology",
+      "professor": "Prof. Victoria Clark",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 219.99,
+      "resources": [
+        {
+          "id": "f208ebe0-9993-47f6-947b-0e131307d751",
+          "course_id": "2dccc92e-d0e3-437e-9807-4b6050272ea2",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEpsychta1SYL/view",
+          "uploader_netid": "vc0036@nyu.edu",
+          "votes": 49
+        },
+        {
+          "id": "29f56044-4e19-44e7-b91f-04a18650e869",
+          "course_id": "2dccc92e-d0e3-437e-9807-4b6050272ea2",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEpsychta1LEC",
+          "uploader_netid": "cd0037@nyu.edu",
+          "votes": 34
+        },
+        {
+          "id": "18b9761e-e4dc-459f-a6f8-9321d5f168f7",
+          "course_id": "2dccc92e-d0e3-437e-9807-4b6050272ea2",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEpsychta1GUIDE/view",
+          "uploader_netid": "ef0038@nyu.edu",
+          "votes": 38
+        },
+        {
+          "id": "ffa32a4a-f878-4e21-b1ac-8a4ee809cbec",
+          "course_id": "2dccc92e-d0e3-437e-9807-4b6050272ea2",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEpsychta1LEC2",
+          "uploader_netid": "gh0039@nyu.edu",
+          "votes": 29
+        }
+      ]
+    },
+    {
+      "id": "46ef04c4-d1d5-4394-99d2-6f7d47c1d61c",
+      "code": "PSYCH-UA 30",
+      "name": "Social Psychology",
+      "professor": "Prof. Edward Lewis",
+      "recording_status": "Peer-Only",
+      "avg_textbook_cost": 149.99,
+      "resources": [
+        {
+          "id": "5dcc59e9-db8b-4459-868e-4e8d39f8b0db",
+          "course_id": "46ef04c4-d1d5-4394-99d2-6f7d47c1d61c",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEpsychta30SYL/view",
+          "uploader_netid": "el0040@nyu.edu",
+          "votes": 18
+        },
+        {
+          "id": "20da1963-bd7a-4887-b774-e66ed3b3ed61",
+          "course_id": "46ef04c4-d1d5-4394-99d2-6f7d47c1d61c",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEpsychta30GUIDE/view",
+          "uploader_netid": "ij0041@nyu.edu",
+          "votes": 12
+        }
+      ]
+    },
+    {
+      "id": "25f43c25-0a66-405f-ad4d-a4a5996844e4",
+      "code": "PSYCH-UA 74",
+      "name": "Abnormal Psychology",
+      "professor": "Prof. Nancy Robinson",
+      "recording_status": "Not Recorded",
+      "avg_textbook_cost": 129.99,
+      "resources": [
+        {
+          "id": "6b44851f-aaa4-448b-9ec1-a95bb0788481",
+          "course_id": "25f43c25-0a66-405f-ad4d-a4a5996844e4",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEpsychta74SYL/view",
+          "uploader_netid": "nr0042@nyu.edu",
+          "votes": 21
+        },
+        {
+          "id": "c84e1286-8003-4de4-a8f2-634336d68562",
+          "course_id": "25f43c25-0a66-405f-ad4d-a4a5996844e4",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEpsychta74LEC",
+          "uploader_netid": "kl0043@nyu.edu",
+          "votes": 14
+        },
+        {
+          "id": "51f84252-63ec-47a2-9f66-43bd35793a7d",
+          "course_id": "25f43c25-0a66-405f-ad4d-a4a5996844e4",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEpsychta74GUIDE/view",
+          "uploader_netid": "mn0044@nyu.edu",
+          "votes": 16
+        }
+      ]
+    },
+    {
+      "id": "d2f9a3e4-320b-4d5d-88bd-33c3b79e6591",
+      "code": "EXPOS-UA 1",
+      "name": "Writing the Essay",
+      "professor": "Prof. Jonathan Walker",
+      "recording_status": "Not Recorded",
+      "avg_textbook_cost": 0.0,
+      "resources": [
+        {
+          "id": "2fd9e998-2fe7-410f-a26e-4deda55a3a92",
+          "course_id": "d2f9a3e4-320b-4d5d-88bd-33c3b79e6591",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEexposua1SYL/view",
+          "uploader_netid": "jw0045@nyu.edu",
+          "votes": 11
+        }
+      ]
+    },
+    {
+      "id": "f67c5ec4-b4ca-4663-a0d0-a4b3e6204e99",
+      "code": "EXPOS-UA 9",
+      "name": "First Year Writing Seminar",
+      "professor": "Prof. Michelle Hall",
+      "recording_status": "Not Recorded",
+      "avg_textbook_cost": 0.0,
+      "resources": [
+        {
+          "id": "0b106e64-b04e-4ff0-b8f0-a1b3e1217ac7",
+          "course_id": "f67c5ec4-b4ca-4663-a0d0-a4b3e6204e99",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEexposua9SYL/view",
+          "uploader_netid": "mh0046@nyu.edu",
+          "votes": 8
+        }
+      ]
+    },
+    {
+      "id": "205b7d5b-d9a0-4d8d-903e-a92582c60784",
+      "code": "MGMT-UB 1",
+      "name": "Foundations of Management",
+      "professor": "Prof. Benjamin Young",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 199.99,
+      "resources": [
+        {
+          "id": "0473e9cb-e71d-4cd4-8508-412d12f85712",
+          "course_id": "205b7d5b-d9a0-4d8d-903e-a92582c60784",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEmgmtub1SYL/view",
+          "uploader_netid": "by0047@nyu.edu",
+          "votes": 43
+        },
+        {
+          "id": "3dc5ea4c-761a-4de6-9a90-8094c9d83581",
+          "course_id": "205b7d5b-d9a0-4d8d-903e-a92582c60784",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEmgmtub1LEC",
+          "uploader_netid": "rs0048@nyu.edu",
+          "votes": 27
+        },
+        {
+          "id": "a515743b-4f3f-4c89-ac1c-c94b11f9da87",
+          "course_id": "205b7d5b-d9a0-4d8d-903e-a92582c60784",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEmgmtub1GUIDE/view",
+          "uploader_netid": "tu0049@nyu.edu",
+          "votes": 32
+        }
+      ]
+    },
+    {
+      "id": "41d509c4-e0e2-4fb1-a18d-61542daea836",
+      "code": "MKTG-UB 1",
+      "name": "Introduction to Marketing",
+      "professor": "Prof. Patricia Allen",
+      "recording_status": "Peer-Only",
+      "avg_textbook_cost": 189.99,
+      "resources": [
+        {
+          "id": "29422148-747e-4de8-925b-9c2e74b8bdd3",
+          "course_id": "41d509c4-e0e2-4fb1-a18d-61542daea836",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEmktgub1SYL/view",
+          "uploader_netid": "pa0050@nyu.edu",
+          "votes": 25
+        },
+        {
+          "id": "f0f13039-740f-45d6-800e-cf920e058d35",
+          "course_id": "41d509c4-e0e2-4fb1-a18d-61542daea836",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEmktgub1GUIDE/view",
+          "uploader_netid": "vw0051@nyu.edu",
+          "votes": 17
+        }
+      ]
+    },
+    {
+      "id": "2738323f-2683-4899-bd6d-0d0e8407718a",
+      "code": "FINC-UB 2",
+      "name": "Corporate Finance",
+      "professor": "Prof. William Sanchez",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 229.99,
+      "resources": [
+        {
+          "id": "e4415a10-e0ad-487d-a9c2-7228087f24c3",
+          "course_id": "2738323f-2683-4899-bd6d-0d0e8407718a",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEfincub2SYL/view",
+          "uploader_netid": "ws0052@nyu.edu",
+          "votes": 47
+        },
+        {
+          "id": "f369f050-c8d1-45fc-9c6e-f22b4082c514",
+          "course_id": "2738323f-2683-4899-bd6d-0d0e8407718a",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEfincub2LEC",
+          "uploader_netid": "xy0053@nyu.edu",
+          "votes": 31
+        },
+        {
+          "id": "97d9c819-bfc8-4cd3-8f55-f9111d3d430c",
+          "course_id": "2738323f-2683-4899-bd6d-0d0e8407718a",
+          "type": "Study_Guide",
+          "url": "https://drive.google.com/file/d/1FAKEfincub2GUIDE/view",
+          "uploader_netid": "ab0054@nyu.edu",
+          "votes": 37
+        }
+      ]
+    },
+    {
+      "id": "760add99-4895-4143-8939-932fd0c2ac88",
+      "code": "ECE-UY 1002",
+      "name": "Intro to Electrical and Computer Engineering",
+      "professor": "Prof. Daniel Mitchell",
+      "recording_status": "Confirmed",
+      "avg_textbook_cost": 159.99,
+      "resources": [
+        {
+          "id": "c2b148eb-8aaf-4486-9e39-78a82ca403b9",
+          "course_id": "760add99-4895-4143-8939-932fd0c2ac88",
+          "type": "Syllabus",
+          "url": "https://drive.google.com/file/d/1FAKEeceuy1002SYL/view",
+          "uploader_netid": "dm0055@nyu.edu",
+          "votes": 39
+        },
+        {
+          "id": "4786a140-32a5-49eb-a57e-97af3ac09b4c",
+          "course_id": "760add99-4895-4143-8939-932fd0c2ac88",
+          "type": "Lecture_Link",
+          "url": "https://youtu.be/FAKEeceuy1002LEC",
+          "uploader_netid": "gh0056@nyu.edu",
+          "votes": 24
+        }
+      ]
+    }
+  ]
+}
