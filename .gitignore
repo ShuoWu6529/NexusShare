@@ -36,3 +36,10 @@ pnpm-debug.log*
 lerna-debug.log*
 logs/
 *.log
+
+# Fonts (NYU Gotham — commercial license, do not commit)
+public/fonts/
+frontend/public/fonts/
+
+# Claude Code
+.claude/
