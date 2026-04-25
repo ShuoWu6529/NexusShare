@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens ─── */
+@layer base {
+  :root {
+    --shadow-card:       0 1px 3px 0 rgb(87 6 140 / 0.06), 0 1px 2px -1px rgb(87 6 140 / 0.04);
+    --shadow-card-hover: 0 8px 24px -4px rgb(87 6 140 / 0.14), 0 2px 8px -2px rgb(87 6 140 / 0.08);
+    --shadow-modal:      0 24px 64px -12px rgb(87 6 140 / 0.22), 0 0 0 1px rgb(87 6 140 / 0.06);
+    --shadow-navbar:     0 1px 0 0 rgb(0 0 0 / 0.06);
+
+    --duration-fast:   120ms;
+    --duration-normal: 200ms;
+    --duration-slow:   350ms;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* ─── Animation utilities ─── */
+@layer utilities {
+  @keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
+  }
+
+  .skeleton-shimmer {
+    background: linear-gradient(90deg, #d6d6d6 25%, #f2f2f2 50%, #d6d6d6 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+
+  .dark .skeleton-shimmer {
+    background: linear-gradient(90deg, #2C2040 25%, #3D2F55 50%, #2C2040 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+
+  .card-hover {
+    will-change: transform;
+    transition:
+      transform var(--duration-normal) var(--ease-out-expo),
+      box-shadow var(--duration-normal) var(--ease-out-expo),
+      border-color var(--duration-normal) var(--ease-in-out);
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  @keyframes modal-in {
+    from { opacity: 0; transform: scale(0.96) translateY(8px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0);   }
+  }
+  .modal-enter {
+    animation: modal-in var(--duration-slow) var(--ease-out-expo) both;
+  }
+
+  @keyframes toast-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .toast-enter {
+    animation: toast-in var(--duration-normal) var(--ease-out-expo) both;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    animation: fade-up var(--duration-slow) var(--ease-out-expo) both;
+  }
+}
