@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import {
   ArrowLeft,
@@ -9,20 +9,53 @@ import {
   ThumbsDown,
   AlertCircle,
 } from 'lucide-react'
-import { mockCourses } from '../data/mockCourses'
+import { fetchCourse, verifyResource } from '../api'
+import type { Course } from '../data/mockCourses'
 import StarRating from '../components/StarRating'
-
-const RESOURCE_DATES: Record<number, string> = {
-  0: 'Jan 14, 2026',
-  1: 'Feb 3, 2026',
-  2: 'Mar 9, 2026',
-  3: 'Apr 1, 2026',
-}
 
 export default function CourseDetail() {
   const { id } = useParams<{ id: string }>()
-  const course = mockCourses.find((c) => c.id === id)
+  const [course, setCourse] = useState<Course | null>(null)
+  const [loading, setLoading] = useState(true)
   const [helpful, setHelpful] = useState<'yes' | 'no' | null>(null)
+  const [votedIds, setVotedIds] = useState<Set<string>>(new Set())
+
+  useEffect(() => {
+    if (!id) return
+    setLoading(true)
+    fetchCourse(id)
+      .then(setCourse)
+      .catch(() => setCourse(null))
+      .finally(() => setLoading(false))
+  }, [id])
+
+  async function handleVerify(resourceId: string) {
+    if (!resourceId || votedIds.has(resourceId)) return
+    try {
+      await verifyResource(resourceId)
+      setVotedIds((prev) => new Set(prev).add(resourceId))
+      setCourse((prev) => {
+        if (!prev) return prev
+        return {
+          ...prev,
+          resources: prev.resources.map((r) =>
+            r.id === resourceId ? { ...r, votes: (r.votes ?? 0) + 1 } : r
+          ),
+          verifiedCount: prev.verifiedCount + 1,
+        }
+      })
+    } catch {
+      // silently ignore
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-nyu-light-gray dark:bg-surface-dark-base">
+        <div className="w-8 h-8 border-4 border-nyu-violet border-t-transparent rounded-full animate-spin" />
+      </div>
+    )
+  }
 
   if (!course) {
     return (
@@ -37,12 +70,14 @@ export default function CourseDetail() {
     )
   }
 
-  const grading = [
-    { label: 'Exams', value: course.gradingBreakdown.exams, color: 'bg-nyu-violet' },
-    { label: 'Projects', value: course.gradingBreakdown.projects, color: 'bg-nyu-blue' },
-    { label: 'Homework', value: course.gradingBreakdown.homework, color: 'bg-nyu-yellow' },
-    { label: 'Participation', value: course.gradingBreakdown.participation, color: 'bg-nyu-teal' },
-  ]
+  const grading = course.gradingBreakdown
+    ? [
+        { label: 'Exams', value: course.gradingBreakdown.exams, color: 'bg-nyu-violet' },
+        { label: 'Projects', value: course.gradingBreakdown.projects, color: 'bg-nyu-blue' },
+        { label: 'Homework', value: course.gradingBreakdown.homework, color: 'bg-nyu-yellow' },
+        { label: 'Participation', value: course.gradingBreakdown.participation, color: 'bg-nyu-teal' },
+      ]
+    : null
 
   return (
     <div className="min-h-screen bg-nyu-light-gray dark:bg-surface-dark-base transition-colors duration-200">
@@ -85,7 +120,14 @@ export default function CourseDetail() {
                 {course.syllabusAvailable ? (
                   <>
                     <p className="text-sm text-ink-secondary dark:text-ink-dark-secondary font-medium">Syllabus available</p>
-                    <span className="text-xs text-ink-tertiary dark:text-ink-dark-tertiary">Spring 2026 · PDF</span>
+                    <a
+                      href={course.resources.find((r) => r.type === 'Syllabus')?.url ?? '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-nyu-violet dark:text-nyu-light-violet-1 font-semibold hover:underline"
+                    >
+                      View PDF
+                    </a>
                   </>
                 ) : (
                   <p className="text-sm text-ink-tertiary dark:text-ink-dark-tertiary">No syllabus uploaded yet</p>
@@ -93,48 +135,70 @@ export default function CourseDetail() {
               </div>
             </div>
 
-            <div className="bg-nyu-white dark:bg-surface-dark-raised border border-nyu-gray-3 dark:border-surface-dark-subtle rounded-xl shadow-card p-6">
-              <h2 className="text-base font-semibold text-ink-primary dark:text-ink-dark-primary mb-5">Grading Breakdown</h2>
-              <div className="flex flex-col gap-4">
-                {grading.map(({ label, value, color }) => (
-                  <div key={label}>
-                    <div className="flex justify-between text-sm mb-1.5">
-                      <span className="text-ink-secondary dark:text-ink-dark-secondary font-medium">{label}</span>
-                      <span className="text-ink-primary dark:text-ink-dark-primary font-semibold">{value}%</span>
+            {grading && (
+              <div className="bg-nyu-white dark:bg-surface-dark-raised border border-nyu-gray-3 dark:border-surface-dark-subtle rounded-xl shadow-card p-6">
+                <h2 className="text-base font-semibold text-ink-primary dark:text-ink-dark-primary mb-5">Grading Breakdown</h2>
+                <div className="flex flex-col gap-4">
+                  {grading.map(({ label, value, color }) => (
+                    <div key={label}>
+                      <div className="flex justify-between text-sm mb-1.5">
+                        <span className="text-ink-secondary dark:text-ink-dark-secondary font-medium">{label}</span>
+                        <span className="text-ink-primary dark:text-ink-dark-primary font-semibold">{value}%</span>
+                      </div>
+                      <div className="w-full h-2.5 bg-nyu-gray-3 dark:bg-surface-dark-subtle rounded-full overflow-hidden">
+                        <div
+                          className={`h-full rounded-full ${color} transition-[width] duration-700 ease-out`}
+                          style={{ width: `${value}%` }}
+                        />
+                      </div>
                     </div>
-                    <div className="w-full h-2.5 bg-nyu-gray-3 dark:bg-surface-dark-subtle rounded-full overflow-hidden">
-                      <div
-                        className={`h-full rounded-full ${color} transition-[width] duration-700 ease-out`}
-                        style={{ width: `${value}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Right Column */}
           <div className="flex flex-col gap-6">
             <div className="bg-nyu-white dark:bg-surface-dark-raised border border-nyu-gray-3 dark:border-surface-dark-subtle rounded-xl shadow-card p-6">
               <h2 className="text-base font-semibold text-ink-primary dark:text-ink-dark-primary mb-4">Community Resources</h2>
-              <div className="flex flex-col divide-y divide-nyu-gray-3 dark:divide-surface-dark-subtle">
-                {course.resources.map((resource, i) => (
-                  <div key={i} className="flex items-center justify-between py-3 gap-3">
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-ink-primary dark:text-ink-dark-primary truncate">{resource.title}</p>
-                      <p className="text-xs text-ink-tertiary dark:text-ink-dark-tertiary mt-0.5">{RESOURCE_DATES[i] ?? 'Apr 10, 2026'}</p>
+              {course.resources.length === 0 ? (
+                <p className="text-sm text-ink-tertiary dark:text-ink-dark-tertiary py-4 text-center">No resources uploaded yet.</p>
+              ) : (
+                <div className="flex flex-col divide-y divide-nyu-gray-3 dark:divide-surface-dark-subtle">
+                  {course.resources.map((resource) => (
+                    <div key={resource.id ?? resource.url} className="flex items-center justify-between py-3 gap-3">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-ink-primary dark:text-ink-dark-primary truncate">{resource.title}</p>
+                        {resource.votes !== undefined && (
+                          <p className="text-xs text-ink-tertiary dark:text-ink-dark-tertiary mt-0.5">{resource.votes} vote{resource.votes !== 1 ? 's' : ''}</p>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2 shrink-0">
+                        {resource.id && (
+                          <button
+                            onClick={() => handleVerify(resource.id!)}
+                            disabled={votedIds.has(resource.id)}
+                            title="Verify this resource"
+                            className="p-1.5 rounded-lg text-ink-tertiary dark:text-ink-dark-tertiary hover:text-nyu-teal hover:bg-nyu-teal/10 disabled:opacity-40 disabled:cursor-not-allowed transition-colors duration-150"
+                          >
+                            <ThumbsUp className="w-3.5 h-3.5" />
+                          </button>
+                        )}
+                        <a
+                          href={resource.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-nyu-light-violet-2 dark:bg-surface-dark-subtle text-nyu-violet dark:text-nyu-light-violet-1 text-xs font-semibold hover:bg-nyu-light-violet-1 dark:hover:bg-surface-dark-muted transition-colors duration-150"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                          Open
+                        </a>
+                      </div>
                     </div>
-                    <a
-                      href={resource.url}
-                      className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-nyu-light-violet-2 dark:bg-surface-dark-subtle text-nyu-violet dark:text-nyu-light-violet-1 text-xs font-semibold hover:bg-nyu-light-violet-1 dark:hover:bg-surface-dark-muted transition-colors duration-150"
-                    >
-                      <ExternalLink className="w-3 h-3" />
-                      Peer Link
-                    </a>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="bg-nyu-white dark:bg-surface-dark-raised border border-nyu-gray-3 dark:border-surface-dark-subtle rounded-xl shadow-card p-6 flex flex-col gap-5">

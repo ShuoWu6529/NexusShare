@@ -1,30 +1,41 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Search, BookOpenCheck, Users, DollarSign, Star } from 'lucide-react'
 import Navbar from '../components/Navbar'
 import CourseGrid from '../components/CourseGrid'
 import UploadModal from '../components/UploadModal'
 import Toast from '../components/Toast'
-import { mockCourses } from '../data/mockCourses'
+import { fetchCourses } from '../api'
+import type { Course } from '../data/mockCourses'
 
 export default function Landing() {
+  const [courses, setCourses] = useState<Course[]>([])
   const [query, setQuery] = useState('')
+  const [apiLoading, setApiLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
   const [showToast, setShowToast] = useState(false)
+  const [toastMsg, setToastMsg] = useState('Uploaded successfully!')
+
+  useEffect(() => {
+    fetchCourses()
+      .then(setCourses)
+      .catch(console.error)
+      .finally(() => setApiLoading(false))
+  }, [])
 
   const filtered = useMemo(() => {
     const q = query.toLowerCase()
-    if (!q) return mockCourses
-    return mockCourses.filter(
+    if (!q) return courses
+    return courses.filter(
       (c) =>
         c.code.toLowerCase().includes(q) ||
         c.name.toLowerCase().includes(q) ||
         c.professor.toLowerCase().includes(q)
     )
-  }, [query])
+  }, [query, courses])
 
-  const avgRating = (
-    mockCourses.reduce((sum, c) => sum + c.clarityScore, 0) / mockCourses.length
-  ).toFixed(1)
+  const avgRating = courses.length
+    ? (courses.reduce((sum, c) => sum + c.clarityScore, 0) / courses.length).toFixed(1)
+    : '—'
 
   return (
     <div className="min-h-screen bg-nyu-light-gray dark:bg-surface-dark-base transition-colors duration-200">
@@ -65,7 +76,7 @@ export default function Landing() {
             <div className="flex flex-col gap-5">
               {[
                 { icon: BookOpenCheck, value: '450+', label: 'Syllabi Shared', color: 'text-nyu-teal' },
-                { icon: Users, value: '120', label: 'Courses with Peer Support', color: 'text-nyu-blue' },
+                { icon: Users, value: courses.length.toString(), label: 'Courses Available', color: 'text-nyu-blue' },
                 { icon: DollarSign, value: '$12,400', label: 'Saved on Textbooks', color: 'text-nyu-violet dark:text-nyu-light-violet-1' },
                 { icon: Star, value: avgRating, label: 'Avg. Clarity Score', color: 'text-nyu-yellow' },
               ].map(({ icon: Icon, value, label, color }) => (
@@ -90,22 +101,26 @@ export default function Landing() {
               {query ? `Results for "${query}"` : 'Top Courses'}
             </h2>
             {!query && (
-              <span className="text-sm text-ink-tertiary dark:text-ink-dark-tertiary">{mockCourses.length} courses available</span>
+              <span className="text-sm text-ink-tertiary dark:text-ink-dark-tertiary">{courses.length} courses available</span>
             )}
           </div>
-          <CourseGrid courses={filtered} query={query} />
+          <CourseGrid courses={filtered} query={query} loading={apiLoading} />
         </section>
       </main>
 
       {showModal && (
         <UploadModal
+          courses={courses}
           onClose={() => setShowModal(false)}
-          onSuccess={() => setShowToast(true)}
+          onSuccess={(msg) => {
+            setToastMsg(msg ?? 'Uploaded successfully!')
+            setShowToast(true)
+          }}
         />
       )}
 
       {showToast && (
-        <Toast message="Uploaded successfully!" onDismiss={() => setShowToast(false)} />
+        <Toast message={toastMsg} onDismiss={() => setShowToast(false)} />
       )}
     </div>
   )

@@ -6,16 +6,20 @@ import SkeletonCard from './SkeletonCard'
 interface CourseGridProps {
   courses: Course[]
   query: string
+  loading?: boolean
 }
 
-export default function CourseGrid({ courses, query }: CourseGridProps) {
-  const [loading, setLoading] = useState(true)
+export default function CourseGrid({ courses, query, loading: externalLoading }: CourseGridProps) {
+  const [queryLoading, setQueryLoading] = useState(false)
 
   useEffect(() => {
-    setLoading(true)
-    const timer = setTimeout(() => setLoading(false), 500)
+    if (!query) return
+    setQueryLoading(true)
+    const timer = setTimeout(() => setQueryLoading(false), 300)
     return () => clearTimeout(timer)
   }, [query])
+
+  const loading = externalLoading || queryLoading
 
   const displayed = query.trim() === '' ? courses.slice(0, 6) : courses
 

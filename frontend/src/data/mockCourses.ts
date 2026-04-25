@@ -6,9 +6,11 @@ export interface GradingBreakdown {
 }
 
 export interface Resource {
+  id?: string;
   title: string;
   type: string;
   url: string;
+  votes?: number;
 }
 
 export interface Course {
@@ -21,7 +23,7 @@ export interface Course {
   textbookCost: number;
   clarityScore: number;
   verifiedCount: number;
-  gradingBreakdown: GradingBreakdown;
+  gradingBreakdown?: GradingBreakdown;
   resources: Resource[];
 }
 

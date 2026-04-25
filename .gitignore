@@ -1,3 +1,9 @@
+# Backend runtime artifacts
+backend/.venv/
+backend/static/*
+!backend/static/syllabus_*.pdf
+!backend/static/study_guide_*.pdf
+
 # Dependencies
 node_modules/
 .pnp

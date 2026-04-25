@@ -295,6 +295,27 @@ def search_courses(
     return result
 
 
+@app.get("/courses/{course_id}", response_model=CourseOut)
+def get_course(course_id: str, session: Session = Depends(get_session)) -> CourseOut:
+    row = session.exec(
+        select(Course, Professor).join(Professor, Course.professor_id == Professor.id).where(Course.id == course_id)  # type: ignore[arg-type]
+    ).first()
+    if not row:
+        raise HTTPException(status_code=404, detail="Course not found")
+    course, prof = row
+    resources = list(session.exec(select(Resource).where(Resource.course_id == course.id)).all())
+    return CourseOut(
+        id=course.id,
+        code=course.code,
+        name=course.name,
+        professor_name=prof.name,
+        recording_status=course.recording_status,
+        avg_textbook_cost=course.avg_textbook_cost,
+        resource_readiness_score=compute_resource_readiness(resources),
+        resources=[ResourceOut.model_validate(r) for r in resources],
+    )
+
+
 # ---------------------------------------------------------------------------
 # Upload
 # ---------------------------------------------------------------------------
