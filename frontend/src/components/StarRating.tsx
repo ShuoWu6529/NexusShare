@@ -7,7 +7,9 @@ export default function StarRating({ score }: { score: number }) {
         <Star
           key={i}
           className={`w-4 h-4 ${
-            i <= score ? 'fill-yellow-400 text-yellow-400' : 'fill-gray-100 text-gray-300'
+            i <= score
+              ? 'fill-nyu-yellow text-nyu-yellow'
+              : 'fill-nyu-gray-3 text-nyu-gray-2 dark:fill-surface-dark-subtle dark:text-surface-dark-muted'
           }`}
         />
       ))}

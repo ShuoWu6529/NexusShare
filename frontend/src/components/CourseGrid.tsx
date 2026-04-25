@@ -21,7 +21,7 @@ export default function CourseGrid({ courses, query }: CourseGridProps) {
 
   if (loading) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {Array.from({ length: 6 }).map((_, i) => (
           <SkeletonCard key={i} />
         ))}
@@ -31,7 +31,7 @@ export default function CourseGrid({ courses, query }: CourseGridProps) {
 
   if (displayed.length === 0) {
     return (
-      <div className="text-center py-16 text-gray-400">
+      <div className="text-center py-16 text-ink-secondary dark:text-ink-dark-secondary">
         <p className="text-lg font-medium">No courses found for "{query}"</p>
         <p className="text-sm mt-1">Try searching by course code, professor, or department.</p>
       </div>
@@ -39,9 +39,11 @@ export default function CourseGrid({ courses, query }: CourseGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {displayed.map((course) => (
-        <CourseCard key={course.id} course={course} />
+    <div key={query} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {displayed.map((course, i) => (
+        <div key={course.id} className="fade-up" style={{ animationDelay: `${i * 60}ms` }}>
+          <CourseCard course={course} />
+        </div>
       ))}
     </div>
   )

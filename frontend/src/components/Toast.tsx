@@ -13,8 +13,8 @@ export default function Toast({ message, onDismiss }: ToastProps) {
   }, [onDismiss])
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-gray-900 text-white px-5 py-3.5 rounded-xl shadow-xl text-sm font-medium animate-pulse">
-      <CheckCircle className="w-5 h-5 text-green-400 shrink-0" />
+    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-nyu-dark-gray dark:bg-surface-dark-overlay text-nyu-white dark:text-ink-dark-primary px-5 py-3.5 rounded-xl shadow-modal dark:border dark:border-surface-dark-subtle text-sm font-medium toast-enter">
+      <CheckCircle className="w-5 h-5 text-nyu-teal shrink-0" />
       {message}
     </div>
   )
